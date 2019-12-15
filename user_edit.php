@@ -135,7 +135,7 @@ $got = $Admin->display_onetrainers($userID);
                 width:1200px;
                 table-layout: fixed;
                 font-size:24px;
-                margin-top:550px;
+                margin-top:600px;
             }
 
             td{
@@ -144,7 +144,7 @@ $got = $Admin->display_onetrainers($userID);
                 overflow-wrap : break-word;
             }
 
-            .cart{
+            .btn{
               font-size: 24px;
             }
   </style>
@@ -154,42 +154,17 @@ $got = $Admin->display_onetrainers($userID);
 <body class="d-flex flex-column">
 <section class="resume-section d-flex align-items-center">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">You can find your favorite trainers.</span>
-      <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="upload/dog.jpg" alt="">
-      </span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-      <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="trainerlist_new.php">TOP</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="">Favorite</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="">Cart</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="">Purchase History</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        <?php include 'sidebar.php' ?>
 
         <?php  
+            $user_id = $_SESSION['login_id'];
 
-            echo "<table class='table-striped text-center mx-auto decline table-bordered'>";
+            echo "<table class='table-striped text-center mx-auto decline mb-5 table-bordered'>";
 
             if($got['trainer_image']== null){
                 echo "<tr>";
                 echo "<td colspan=2>";
-                echo "<i class='fas fa-user'></i><br><br><br>";
+                echo "<i class='fas fa-user'></i><br><br>";
                 echo "<p>This trainer doesnt put photo!!!</p>";
                 echo "</td>";
                 echo "</tr>";
@@ -231,7 +206,13 @@ $got = $Admin->display_onetrainers($userID);
             echo "</tr>";
 
             echo "<tr>";
-            echo "<td colspan=2><a href='' role='button' class='btn btn-lg btn-danger btn-inline-block cart w-75 text-uppercase p-5'>Put into cart</a></td>";
+            echo "<td colspan=2>";
+            echo "<form action='user_action.php' method='post'>";
+            echo "<input type='hidden' name='trainer_id' value='$userID'>";
+            echo "<input type='hidden' name='user_id' value='$user_id'>";
+            echo "<button class='btn btn-lg btn-danger btn-block text-uppercase p-5' type='submit' name='add_cart'>PUT INTO CART</button>"; 
+            echo "</form>";
+            echo "</td>";
             echo "</tr>";
 
 

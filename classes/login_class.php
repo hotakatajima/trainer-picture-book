@@ -34,9 +34,11 @@ class Login extends Database{
             
             if($status == 'user'){
                 $_SESSION['login_id'] = $row['login_id'];
+                $_SESSION['user_status'] = $row['user_status'];
                 header('location: trainerlist.php');
             }else{
                 $_SESSION['login_id'] = $row['login_id'];
+                $_SESSION['user_status'] = $row['user_status'];
                 header('location: admin.php');
             }
             
