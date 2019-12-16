@@ -202,6 +202,10 @@ $got = $Admin->display_onetrainers($userID);
             echo "</tr>";
 
             echo "<tr>";
+            echo "<td>PRICE(per hour)</td><td>".$got['trainer_price']."</td>";
+            echo "</tr>";
+
+            echo "<tr>";
             echo "<td>ADDRESS</td><td>".$got['trainer_address']."</td>";
             echo "</tr>";
 

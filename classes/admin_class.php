@@ -14,13 +14,13 @@ class Admin extends Database{
 //         }
 //     }
 
-    public function add_trainer($fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image){
+    public function add_trainer($fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image,$price){
 
         $image = $_FILES['image']['name'];
         $target_dir = "upload/";
         $target_file = $target_dir .basename($_FILES['image']['name']);
 
-        $inserttrainer = "INSERT INTO product(trainer_fname,trainer_lname,trainer_uname,trainer_email,trainer_description,trainer_phone,trainer_address,trainer_gender,trainer_image)VALUES('$fname','$lname','$uname','$email','$description','$phone','$address','$trainergender','$image')";
+        $inserttrainer = "INSERT INTO product(trainer_fname,trainer_lname,trainer_uname,trainer_email,trainer_description,trainer_phone,trainer_address,trainer_gender,trainer_image,trainer_price)VALUES('$fname','$lname','$uname','$email','$description','$phone','$address','$trainergender','$image','$price')";
         $result = $this->conn->query($inserttrainer);
 
         if($result == false){
@@ -67,13 +67,13 @@ class Admin extends Database{
         }
     }
 
-    public function edit_trainer($userID,$fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image){
+    public function edit_trainer($userID,$fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image,$price){
 
         $image = $_FILES['images']['name'];
         $target_dir = "upload/";
         $target_file = $target_dir .basename($_FILES['images']['name']);
 
-        $edit_trainer = "UPDATE product SET trainer_fname = '$fname',trainer_lname = '$lname', trainer_uname = '$uname', trainer_email = '$email', trainer_description = '$description', trainer_phone = '$phone',trainer_address = '$address',trainer_gender = '$trainergender', trainer_image = '$image' WHERE trainer_id = '$userID' ";
+        $edit_trainer = "UPDATE product SET trainer_fname = '$fname',trainer_lname = '$lname', trainer_uname = '$uname', trainer_email = '$email', trainer_description = '$description', trainer_phone = '$phone',trainer_address = '$address',trainer_gender = '$trainergender', trainer_image = '$image', trainer_price = '$price' WHERE trainer_id = '$userID' ";
         $result = $this->conn->query($edit_trainer);
 
         if($result == false){

@@ -24,8 +24,10 @@ if(isset($_POST['confirm'])){
     $userID = $_POST['user_id'];
     $delete_id = $_POST['delete_id'];
     $quan = $_POST['quan'];
+    $settle = $_POST['settle'];
+    $coupon = $_POST['coupon'];
 
-    $Users->add_confirm($userID,$delete_id,$quan);
+    $Users->add_confirm($userID,$delete_id,$quan,$settle,$coupon);
 }
 
 

@@ -201,6 +201,11 @@ if(empty($_SESSION['login_id'])){
               </div>
 
               <div class="form-label-group">
+                <input type="number" id="wwww" name="price" class="form-control" placeholder="Price" required maxlength="100">
+                <label for="wwww">Price(per hour)</label>
+              </div>
+
+              <div class="form-label-group">
                   <select name="trainergender" id="" class="form-control" required maxlength="100">
                     <option value="" selected disabled>Gender</option>
                       <option value="Male">Male</option>

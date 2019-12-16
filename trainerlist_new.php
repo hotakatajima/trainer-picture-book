@@ -54,7 +54,7 @@
 
             .d-inline-block{
                 width :350px;
-                height :550px;
+                height :650px;
             }
 
             .big{
@@ -199,6 +199,11 @@
                 echo "GENDER : ";
                 echo $row['trainer_gender'];
                 echo "</div><br>";
+
+                echo "<div class='big'>";
+                echo "PRICE(per hour) : ";
+                echo $row['trainer_price'];
+                echo "</div><br>";    
 
                 echo "ADDRESS : <br>";
                 echo "<div class='big'>";

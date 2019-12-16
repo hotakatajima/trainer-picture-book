@@ -31,57 +31,10 @@
   <style>
       .fa-arrow-circle-down{
         font-size:160px;
-      }
+          }
 
-      html,
-            body {
+      html,body {
             height: 100%;
-            }
-
-            #page-content {
-            flex: 1 0 auto;
-            }
-
-            #sticky-footer {
-            flex-shrink: none;
-            }
-
-            .d-inline-block{
-                width :350px;
-                height :550px;
-            }
-
-            .alert-primary{
-                font-size: 18px;
-                padding: 10px;
-            }
-
-            .text-uppercase{
-                font-size: 14px;
-            }
-
-            .btn-google {
-            color: white;
-            background-color: #ea4335;
-            border-radius: 5rem;
-            letter-spacing: .1rem;
-            font-weight: bold;
-            /* padding: 1rem; */
-            transition: all 0.2s;
-            }
-
-            .btn-facebook {
-            color: white;
-            background-color: #3b5998;
-            border-radius: 5rem;
-            letter-spacing: .1rem;
-            font-weight: bold;
-            /* padding: 1rem; */
-            transition: all 0.2s;
-            }
-
-            .fas{
-              font-size:160px;
             }
             
             .img-thumbnail{
@@ -118,12 +71,24 @@
         <div class="w-100 vh-100">
         <div id="page-content">
 
-      <div class="row justify-content-center m-0 text-center">
+        <div class="row justify-content-center m-0 text-center">
 
-          <?php
-
+      <!-- <--?php
+      if(isset($_POST['confirm'])){
+        echo"<div class='row justify-content-center m-0 text-center'>";
+        echo"<div class='card w-100 mb-5'>";
+          echo "<div class='card-header'>";
+              echo "<h2 class='display-2'>ESTIMATE</h2>";
+          echo"</div>";
+          echo"<div class='card-body'>";
+              
+          echo"</div>";
+        echo"</div>";
+      }
+      ?> -->
+           
+      <?php
                 $dispaly = $Users->display_cart($userID);
-
                 foreach($dispaly as $key => $row){
 
                     $image = $row['trainer_image'];
@@ -141,42 +106,76 @@
                         echo "</tr>"; 
                       }
 
-                    echo "<tr>";
-                    echo "<td>NAME</td><td>".$row['trainer_fname'].$row['trainer_lname']."</td>";
-                    echo "</tr>";
-        
-                    echo "<tr>";
-                    echo "<td>GENDER</td><td>".$row['trainer_gender']."</td>";
-                    echo "</tr>";
-
-                    echo "<form action='user_action.php' method='post'>";
-                    echo "<tr>";
-                    echo "<td>QUANTITY(hour)</td>";
-                    echo "<td>";
-                    echo "<div class='form-group'>";
-                    echo "<select name='quan' class='form-control'>";
-                    for($i=1;$i<=100;$i++){
-                        echo "<option value='$i'>$i</option>";    
-                    }
-                    echo "</select>";
-                    echo "</div>";
-                    echo "</td>";
-                    echo "</tr>"; 
-         
-                    echo "<tr>";
-                    echo "<td colspan=2>";
-                    echo "<input type='hidden' name='user_id' value='$userID'>";
-                    echo "<input type='hidden' name='delete_id' value='$delete_id'>";
-                    echo "<button class='btn btn-lg btn-danger btn-block text-uppercase' type='submit' name='delete_cart'>DELETE THIS TRAINER</button>"; 
-                    echo "</td>";
-                    echo "</tr>";
+                      echo "<tr>";
+                      echo "<td>NAME</td><td>".$row['trainer_fname'].$row['trainer_lname']."</td>";
+                      echo "</tr>";
+          
+                      echo "<tr>";
+                      echo "<td>GENDER</td><td>".$row['trainer_gender']."</td>";
+                      echo "</tr>";
+  
+                      echo "<tr>";
+                      echo "<td>MONER PER HOUR</td><td>".$row['trainer_price']."</td>";
+                      echo "</tr>";
+  
+                      echo "<form action='user_action.php' method='post'>";
+                      echo "<tr>";
+                      echo "<td>QUANTITY(hour)</td>";
+                      echo "<td>";
+                      echo "<div class='form-group'>";
+                      echo "<select name='quan[]' class='form-control' required>";
+                      for($i=1;$i<=100;$i++){
+                          echo "<option value='$i'>$i</option>";    
+                      }
+                      echo "</select>";
+                      echo "</div>";
+                      echo "</td>";
+                      echo "</tr>"; 
+  
+                      // echo "<tr>";
+                      // echo "<td>SUM</td><td>".$row['trainer_price']."</td>";
+                      // echo "</tr>";
+           
+                      echo "<tr>";
+                      echo "<td colspan=2>";
+                      echo "<input type='hidden' name='user_id[]' value='$userID'>";
+                      echo "<input type='hidden' name='delete_id[]' value='$delete_id'>";
+                      // echo "<button class='btn btn-lg btn-danger btn-inline-block text-uppercase ml-3' type='submit' name='delete_cart'>EDIT QUANTITY</button>"; 
+                      echo "<button class='btn btn-lg btn-danger btn-block text-uppercase ml-3' type='submit' name='delete_cart'>DELETE THIS TRAINER</button>"; 
+                      echo "</td>";
+                      echo "</tr>";
         
                     echo "</table>";
                 }
+               
           ?>    
-           </div>
-                    
+      </div>
+        <table class='table-striped w-100 text-center mx-auto decline mb-5 table-bordered'>
+          <tr>
+            <td>HOW TO SETTLE</td>
+              <td>
+                <div class='form-group'>
+                <select name='settle' class='form-control' required>
+                <option value="" selected disabled>Choose how to settle</option>
+                <option value="Credit card" disabled>Credit card</option>
+                <option value="Convenience store payment" disabled>Convenience store payment</option>
+                <option value="Bank transfer">Bank transfer</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>COUPON</td>
+              <td>
+                <div class='form-group'>
+                  <input type="text" name="coupon" placeholder="Enter the number of coupon" maxlength="9" class="form-control">
+              </div>
+            </td>
+          </tr>
+        </table>
           <button class='btn btn-lg btn-danger btn-block text-uppercase w-100 p-5 mb-5 buy' type='submit' name='confirm'>CONFIRM</button>
+         
           </form>
         </div>
       </div> 

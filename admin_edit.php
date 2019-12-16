@@ -176,6 +176,10 @@ if(empty($_SESSION['login_id'])){
                 echo "<tr>";
                 echo "<td>ADDRESS</td><td>".$got['trainer_address']."</td>";
                 echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>PRICE(per hour)</td><td>".$got['trainer_price']."</td>";
+                echo "</tr>";
                 echo "</table>";
 
                 echo "<div class='text-center mb-5'>";

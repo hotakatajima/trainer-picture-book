@@ -19,8 +19,9 @@ if(isset($_POST['admin_add'])){
     $address = $_POST['address'];
     $trainergender = $_POST['trainergender'];
     $image = $_FILES['image']['name'];
+    $price = $_POST['price'];
     
-    $Admin->add_trainer($fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image);
+    $Admin->add_trainer($fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image,$price);
 }
 
 if(isset($_POST['admin_edit'])){
@@ -34,8 +35,9 @@ if(isset($_POST['admin_edit'])){
     $trainergender = $_POST['trainergender'];
     $images = $_FILES['images']['name'];
     $id = $_POST['id'];
+    $price = $_POST['price'];
     
-    $Admin->edit_trainer($id,$fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$images);
+    $Admin->edit_trainer($id,$fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$images,$price);
 }
 
 if(isset($_POST['admin_serch'])){
