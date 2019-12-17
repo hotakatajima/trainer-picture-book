@@ -154,7 +154,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
-            <form action="userAction.php" method="post" class="form-signin">
+            <form action="login_action.php" method="post" class="form-signin">
               <div class="form-label-group">
                 <input type="text" id="inputfname" name="fname" class="form-control" placeholder="First Name" required autofocus>
                 <label for="inputfname">First Name</label>

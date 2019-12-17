@@ -49,8 +49,8 @@ class User extends Database{
     }
 
         if($result == false){
-            die('cannot edit cart'.$this->conn->connect_error);
-            // header('location: cart.php');
+            // die('cannot edit cart'.$this->conn->connect_error);
+            header('location: cart.php');
         }else{
             header('location: cart.php');
         }
@@ -95,20 +95,20 @@ class User extends Database{
             }   
     }
 
-    public function add_another($settle,$coupon,$user_id){
-        $amount_settle = count($settle);
+    // public function add_another($settle,$coupon,$user_id){
+    //     $amount_settle = count($settle);
 
-        for($i=0;$i<$amount_settle;$i++){
-        $sql = "UPDATE cart SET user_id = '',trainer_id = '',quantity = '',settle = '$settle[$i]',coupon = '$coupon[$i]' WHERE userid = '$user_id'";
-        $result = $this->conn->query($sql);
-        }
+    //     for($i=0;$i<$amount_settle;$i++){
+    //     $sql = "UPDATE cart SET user_id = '',trainer_id = '',quantity = '',settle = '$settle[$i]',coupon = '$coupon[$i]' WHERE userid = '$user_id'";
+    //     $result = $this->conn->query($sql);
+    //     }
 
-        if($result == false){
-            die('cannot add cart'.$this->conn->connect_error);
-        }else{
-            header('location: cart.php');
-        }
-    }
+    //     if($result == false){
+    //         die('cannot add cart'.$this->conn->connect_error);
+    //     }else{
+    //         header('location: cart.php');
+    //     }
+    // }
 
 }
 ?>

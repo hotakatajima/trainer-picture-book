@@ -181,7 +181,7 @@
                       // for($i=1;$i<=100;$i++){
                       //     echo "<option value='$i'>$i</option>";    
                       // }
-                      echo "<input type='number' name='quan[]' class='form-control' required>";
+                      echo "<input type='number' name='quan[]' class='form-control' >";
                       // echo "</select>";
                       echo "</div>";
                       echo "</td>";

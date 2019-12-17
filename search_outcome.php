@@ -122,7 +122,6 @@ if(empty($_SESSION['login_id'])){
   </head>
   <body class="d-flex flex-column">
   <div id="page-content">
-    <!-- <div class="container text-center"> -->
       <div class="row justify-content-center m-0 text-center">
         <div class="col-md-12 p-0">
           <h1 class="font-weight-light mt-4 text-white">Welcome to admin page !!!</h1>

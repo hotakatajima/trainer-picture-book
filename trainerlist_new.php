@@ -161,7 +161,7 @@
             
           <form action="admin_action.php" method="post">
             <div class="form-group mt-5">
-                <input type="text" name="admin_search" class="form-control w-75 d-inline mb-5" placeholder="Search trainer username">
+                <input type="text" name="admin_search" class="form-control w-75 d-inline mb-5" placeholder="Search trainer username or trainer address">
                 <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="user_serch">GO</button>
                 <!-- <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="admin_serch">GO</button> -->
                 <!-- <a href="search_outcome.php?trainer_lname=" role="button" class="btn btn-lg btn-danger btn-inline-block w-25 text-uppercase ml-2">GO</a> -->

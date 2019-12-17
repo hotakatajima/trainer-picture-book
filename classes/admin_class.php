@@ -86,7 +86,7 @@ class Admin extends Database{
 
     public function search_trainer($search){
 
-        $serch = "SELECT * FROM product WHERE trainer_uname LIKE '%$search%'";
+        $serch = "SELECT * FROM product WHERE trainer_uname LIKE '%$search%' OR trainer_address LIKE '%$search%'";
         $result = $this->conn->query($serch);
 
         if($result->num_rows>0){

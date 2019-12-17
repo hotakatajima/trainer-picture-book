@@ -133,7 +133,7 @@
             
           <form action="admin_action.php" method="post">
             <div class="form-group mt-5">
-                <input type="text" name="search" class="form-control w-25 d-inline p-3" placeholder="Search trainer username">
+                <input type="text" name="search" class="form-control w-25 d-inline p-3" placeholder="Search trainer username or trainer address">
                 <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="admin_serch">GO</button>
                 <!-- <a href="search_outcome.php?trainer_lname=" role="button" class="btn btn-lg btn-danger btn-inline-block w-25 text-uppercase ml-2">GO</a> -->
             </div>
@@ -173,8 +173,6 @@
                 echo "</div>";                  
                 
                 echo "<a href='admin_edit.php?trainer_id=$userID' role='button' class='btn btn-lg btn-google btn-inline-block  text-uppercase mt-2 mb-2'>More detail</a>";
-                // echo "<hr>";
-                // echo "<a href='admin_delete.php?trainer_id=$userID' role='button' class='btn btn-lg btn-facebook btn-block text-uppercase mt-2 mb-2'>Delete this trainer</a>";
                 echo "</div>";                
             }
 

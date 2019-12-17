@@ -171,7 +171,7 @@ if(!empty($_SESSION['login_id'])){
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
-            <form action="userAction.php" method="post" class="form-signin">
+            <form action="login_action.php" method="post" class="form-signin">
               <div class="form-label-group">
                 <input type="uname" id="inputUname" name="uname" class="form-control" placeholder="Username" required autofocus>
                 <label for="inputUname">Username</label>
