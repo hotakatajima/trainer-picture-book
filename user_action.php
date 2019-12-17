@@ -13,21 +13,39 @@ if(isset($_POST['add_cart'])){
     $Users->add_cart($trainer_id,$user_id);
 }
 
-if(isset($_POST['delete_cart'])){
-    $userID = $_POST['user_id'];
-    $delete_id = $_POST['delete_id'];
+if($_GET['actiontype'] == 'delete'){
+    $cart = $_GET['cart_id'];
 
-    $Users->delete_cart($userID,$delete_id);
+    $Users->delete_cart($cart);
 }
 
-if(isset($_POST['confirm'])){
+if(isset($_POST['edit_cart'])){
+    $quan = $_POST['quan'];
     $userID = $_POST['user_id'];
     $delete_id = $_POST['delete_id'];
-    $quan = $_POST['quan'];
+    $cart_id = $_POST['cart_id'];
+    
+    $Users->edit_cart($quan,$userID,$delete_id,$cart_id);
+}
+
+
+if(isset($_POST['confirm'])){
+    $cart_id = $_POST['cart_id'];
+    $userID = $_POST['user_id'];
+    $delete_id = $_POST['delete_id'];
+    $quan = $_POST['quan_id'];
+    // $settle = $_POST['settle'];
+    // $coupon = $_POST['coupon'];
+
+    $Users->add_confirm($userID,$delete_id,$quan,$cart_id);
+}
+
+if(isset($_POST['enter'])){
     $settle = $_POST['settle'];
     $coupon = $_POST['coupon'];
+    $user_id = $_POST['user_id'];
 
-    $Users->add_confirm($userID,$delete_id,$quan,$settle,$coupon);
+    $Users->add_another($settle,$coupon,$user_id);
 }
 
 

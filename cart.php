@@ -59,6 +59,10 @@
                 font-size:24px;
             }
 
+            .font{
+              font-size:24px;
+            }
+
   </style>
 
 </head>
@@ -73,26 +77,76 @@
 
         <div class="row justify-content-center m-0 text-center">
 
-      <!-- <--?php
-      if(isset($_POST['confirm'])){
-        echo"<div class='row justify-content-center m-0 text-center'>";
-        echo"<div class='card w-100 mb-5'>";
-          echo "<div class='card-header'>";
-              echo "<h2 class='display-2'>ESTIMATE</h2>";
-          echo"</div>";
-          echo"<div class='card-body'>";
-              
-          echo"</div>";
-        echo"</div>";
-      }
-      ?> -->
+        <div class='row justify-content-center m-0 text-center'>
+        <div class='card w-100 mb-5'>
+          <div class='card-header'>
+              <h2 class='display-2'>ESTIMATE</h2>
+          </div>
+          <div class='card-body'>
+            <?php
+                $sum = 0;
+                $dispaly = $Users->display_cart($userID);
+                foreach($dispaly as $key => $row){
+                  echo "<h3>TRAINER NAME :".$row['trainer_fname'].$row['trainer_lname']."</h3>";
+                  echo "<h3>PRICE :".$row['trainer_price']."</h3>";
+                  echo "<h3>QUANTITY :".$row['quantity']."</h3>";
+                  echo "<h3>SUM :".$row['trainer_price']*$row['quantity']."</h3>";
+                  echo "<hr>";
+
+                  $sum += $row['trainer_price']*$row['quantity'];
+                  $settle = $row['settle'];
+                  $coupon = $row['coupon'];
+                }
+                echo "<div class='alert alert-danger'>";
+                echo "<h3>TOTAL AMOUNT: $sum</h3>";
+                echo "<h3>COUPON: ".$coupon."</h3>";
+                echo "<h3>HOW TO SETTLE: ".$settle."</h3>";
+                echo "<h3>FIANL AMOUNT: </h3>";
+                echo "</div>";
+            ?>
+          </div>
+        </div>
+        
+          <table class='table-striped w-100 text-center mx-auto decline mb-5 table-bordered'>
+          <form action="user_action.php" method="post">
+            <tr>
+              <td><span class="font">HOW TO SETTLE</span><br>Credit card: 5% off<br>Convenience store payment: 3% off</td>
+                <td>
+                  <div class='form-group'>
+                  <select name='settle[]' class='form-control' required>
+                  <option value="" selected disabled>Choose how to settle</option>
+                  <option value="Credit card">Credit card</option>
+                  <option value="Convenience store payment">Convenience store payment</option>
+                  <option value="Bank transfer">Bank transfer</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="font">COUPON</span></td>
+                <td>
+                  <div class='form-group'>
+                    <input type="text" name="coupon[]" placeholder="Enter the number of coupon" maxlength="9" class="form-control">
+                    <!-- <input type="hidden" name="user_id[]" value="">                 -->
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan=2>
+                <button class='btn btn-lg btn-danger btn-block text-uppercase mr-1 ml-1' type='submit' name='enter'>ENTER</button>  
+              </td>
+            </tr>
+            </form>
+          </table>
            
       <?php
-                $dispaly = $Users->display_cart($userID);
+                // $dispaly = $Users->display_cart($userID);
                 foreach($dispaly as $key => $row){
 
                     $image = $row['trainer_image'];
                     $delete_id = $row['trainer_id'];
+                    $cart_id = $row['cart_id'];
 
                     echo "<table class='table-striped w-50 text-center mx-auto decline mb-5 table-bordered'>";
                     
@@ -123,60 +177,49 @@
                       echo "<td>QUANTITY(hour)</td>";
                       echo "<td>";
                       echo "<div class='form-group'>";
-                      echo "<select name='quan[]' class='form-control' required>";
-                      for($i=1;$i<=100;$i++){
-                          echo "<option value='$i'>$i</option>";    
-                      }
-                      echo "</select>";
+                      // echo "<select name='quan[]' class='form-control' required>";
+                      // for($i=1;$i<=100;$i++){
+                      //     echo "<option value='$i'>$i</option>";    
+                      // }
+                      echo "<input type='number' name='quan[]' class='form-control' required>";
+                      // echo "</select>";
                       echo "</div>";
                       echo "</td>";
                       echo "</tr>"; 
-  
-                      // echo "<tr>";
-                      // echo "<td>SUM</td><td>".$row['trainer_price']."</td>";
-                      // echo "</tr>";
            
                       echo "<tr>";
                       echo "<td colspan=2>";
                       echo "<input type='hidden' name='user_id[]' value='$userID'>";
                       echo "<input type='hidden' name='delete_id[]' value='$delete_id'>";
-                      // echo "<button class='btn btn-lg btn-danger btn-inline-block text-uppercase ml-3' type='submit' name='delete_cart'>EDIT QUANTITY</button>"; 
-                      echo "<button class='btn btn-lg btn-danger btn-block text-uppercase ml-3' type='submit' name='delete_cart'>DELETE THIS TRAINER</button>"; 
+                      echo "<input type='hidden' name='cart_id[]' value='$cart_id'>";
+                      echo "<button class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1' type='submit' name='edit_cart'>EDIT THIS TRAINER</button>"; 
+                      echo "<a href='user_action.php?actiontype=delete&cart_id=$cart_id'  class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1'>DELETE THIS TRAINER</a>";
                       echo "</td>";
                       echo "</tr>";
+                      // echo "</form>";
         
-                    echo "</table>";
-                }
-               
-          ?>    
-      </div>
-        <table class='table-striped w-100 text-center mx-auto decline mb-5 table-bordered'>
-          <tr>
-            <td>HOW TO SETTLE</td>
-              <td>
-                <div class='form-group'>
-                <select name='settle' class='form-control' required>
-                <option value="" selected disabled>Choose how to settle</option>
-                <option value="Credit card" disabled>Credit card</option>
-                <option value="Convenience store payment" disabled>Convenience store payment</option>
-                <option value="Bank transfer">Bank transfer</option>
-                </select>
-              </div>
-            </td>
-          </tr>
+                      echo "</table>";
+                }               
+                    
 
-          <tr>
-            <td>COUPON</td>
-              <td>
-                <div class='form-group'>
-                  <input type="text" name="coupon" placeholder="Enter the number of coupon" maxlength="9" class="form-control">
-              </div>
-            </td>
-          </tr>
-        </table>
-          <button class='btn btn-lg btn-danger btn-block text-uppercase w-100 p-5 mb-5 buy' type='submit' name='confirm'>CONFIRM</button>
-         
+          ?> 
+            </div>
           </form>
+
+          <?php
+                echo "<form action='user_action.php' method='post' class='w-100'>";
+                    $displaycart = $Users->display($userID);
+                    foreach($displaycart as $key => $row){
+                      $quan_id = $row['quantity'];
+                      $delete_id = $row['trainer_id'];
+                      echo "<input type='hidden' name='user_id[]' value='$userID'>";
+                      echo "<input type='hidden' name='delete_id[]' value='$delete_id'>";
+                      echo "<input type='hidden' name='quan_id[]' value='$quan_id'>";
+                    }
+                    echo "<button class='btn btn-lg btn-danger btn-block text-uppercase p-5 mb-5 mr-1 ml-1' type='submit' name='confirm'>CONFIRM</button>"; 
+                echo "</form>";
+          ?>
+
         </div>
       </div> 
     </section>      
