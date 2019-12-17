@@ -46,9 +46,9 @@ if(isset($_POST['admin_serch'])){
     $row = $Admin->search_trainer($search);
 
     if ($row == true){
-        header('location:search_outcome.php?trainer_id='.$search);
+        header('location:admin_outcome.php?trainer_id='.$search);
     }else{
-        header('location:sample.php');
+        header('location:admin_outcomes.php');
     }
 
 }
@@ -59,9 +59,9 @@ if(isset($_POST['user_serch'])){
     $row = $Admin->search_trainer($search);
 
     if ($row == true){
-        header('location:usersearch_outcome.php?trainer_id='.$search);
+        header('location:trainerlist_outcome.php?trainer_id='.$search);
     }else{
-        header('location:sample_user.php');
+        header('location:trainerlist_outcomes.php');
     }
 }
 

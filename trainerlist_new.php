@@ -150,21 +150,11 @@
 
       <div class="row justify-content-center m-0 text-center">
         <div class="col-md-12 p-0">
-          <!-- <h1 class="font-weight-light mt-4 text-white">Welcome to admin page !!!</h1>
-          <p class="lead text-white-50"> is qualified for editing database!!!</p>
-          <a href='logout.php' role='button' class='logout btn btn-lg btn-danger p-3 pr-5 pl-5 text-uppercase'>Logout</a> -->
-          
-          <!-- <div class="addittion">
-            <a href='admin_add.php' role='button' class='btn btn-lg btn-danger w-50 p-5 text-uppercase mt-5 mb-5'>Add new trainer</a>
-          </div> -->
-
             
           <form action="admin_action.php" method="post">
             <div class="form-group mt-5">
                 <input type="text" name="admin_search" class="form-control w-75 d-inline mb-5" placeholder="Search trainer username or trainer address">
                 <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="user_serch">GO</button>
-                <!-- <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="admin_serch">GO</button> -->
-                <!-- <a href="search_outcome.php?trainer_lname=" role="button" class="btn btn-lg btn-danger btn-inline-block w-25 text-uppercase ml-2">GO</a> -->
             </div>
           </form>
 
@@ -221,10 +211,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="bulk navbar navbar-expand-lg navbar-dark bg-primary mt-5 mb-3 text-center" id="confirm">
-            <h1 class="text-light pt-3 pl-3">CONFIRM YOYR SHOPPING</h1>
-      </div> -->
       </div> 
     </section>      
   </body>

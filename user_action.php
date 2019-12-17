@@ -40,13 +40,13 @@ if(isset($_POST['confirm'])){
     $Users->add_confirm($userID,$delete_id,$quan,$cart_id);
 }
 
-if(isset($_POST['enter'])){
-    $settle = $_POST['settle'];
-    $coupon = $_POST['coupon'];
-    $user_id = $_POST['user_id'];
+// if(isset($_POST['enter'])){
+//     $settle = $_POST['settle'];
+//     $coupon = $_POST['coupon'];
+//     $user_id = $_POST['user_id'];
 
-    $Users->add_another($settle,$coupon,$user_id);
-}
+//     $Users->add_another($settle,$coupon,$user_id);
+// }
 
 
 ?>
