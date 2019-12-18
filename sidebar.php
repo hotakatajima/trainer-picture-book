@@ -14,13 +14,13 @@
           <a class="nav-link js-scroll-trigger" href="trainerlist_new.php">TOP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="">Favorite</a>
+          <a class="nav-link js-scroll-trigger" href="trainerlist_favorite.php">Favorite</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="cart.php">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="">Purchase History</a>
+          <a class="nav-link js-scroll-trigger" href="trainerlist_history.php">Purchase History</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="logout.php">Logout</a>

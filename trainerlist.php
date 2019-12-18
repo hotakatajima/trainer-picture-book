@@ -2,13 +2,6 @@
 
     include 'admin_action.php';
 
-    // if(empty($_SESSION['login_id'])){
-    //   header('location: login.php');
-    // }else{
-    //   $userID = $_SESSION['login_id'];
-    //   $didi = $Admin->display_onetrainers($userID);
-    // }
-
 ?>
 
 <!DOCTYPE html>
@@ -140,9 +133,9 @@
 
 </head>
 
-<body class="d-flex flex-column">
-
-    <?php include 'sidebar.php' ?>
+<body class="d-flex flex-column"> 
+  
+  <?php include 'sidebar.php' ?>
 
    <section class="resume-section p-3 p-lg-5 d-flex align-items-center">
       <div class="w-100">
@@ -233,15 +226,9 @@
 
           ?>
 
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- <div class="bulk navbar navbar-expand-lg navbar-dark bg-primary mt-5 mb-3 text-center" id="confirm">
-            <h1 class="text-light pt-3 pl-3">CONFIRM YOYR SHOPPING</h1>
-      </div> -->
-
-
       </div> 
     </section>      
   </body>

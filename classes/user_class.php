@@ -95,6 +95,21 @@ class User extends Database{
             }   
     }
 
+    public function display_history($id){
+        $sql = "SELECT * FROM confirm INNER JOIN users ON confirm.user_id = users.user_id INNER JOIN product ON confirm.trainer_id = product.trainer_id WHERE users.user_id ='$id' ";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows>0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[]=$rows;
+            }return $row;
+        }else{
+            header('location:cart_history_none.php');
+        } 
+    }
+
+
     // public function add_another($settle,$coupon,$user_id){
     //     $amount_settle = count($settle);
 

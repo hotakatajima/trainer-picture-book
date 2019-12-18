@@ -98,7 +98,22 @@ class Admin extends Database{
             return false;
         }
     }
+    
+    public function display_login($id){
+        $sql = "SELECT * FROM login WHERE login_id = '$id' ";
+        $result = $this->conn->query($sql);
 
+        if($result == false){
+            if($result->num_rows>0){
+                $row = array();
+                while($rows = $result->fetch_assoc()){
+                    $row[]=$rows;
+                }return $row;
+            }else{
+                die('cannot display login user'.$this->conn->connect_error);
+            }
+        }
+    }
 
 }
 
