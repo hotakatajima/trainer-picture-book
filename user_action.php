@@ -25,7 +25,12 @@ if(isset($_POST['edit_cart'])){
     $delete_id = $_POST['delete_id'];
     $cart_id = $_POST['cart_id'];
     
-    $Users->edit_cart($quan,$userID,$delete_id,$cart_id);
+    for($x = 0; $x <count($delete_id);$x++){
+        $Users->edit_cart($quan[$x],$userID[$x],$delete_id[$x],$cart_id[$x]);
+    }
+    
+    header('location:cart.php');
+   
 }
 
 

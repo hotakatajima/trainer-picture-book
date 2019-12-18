@@ -41,19 +41,19 @@ class User extends Database{
     }
 
     public function edit_cart($quan,$userID,$delete_id,$cart){
-        $amount_trainer = count($delete_id);
+        // $amount_trainer = count($delete_id);
 
-        for($i=0;$i<$amount_trainer;$i++){
-        $sql = "UPDATE cart SET user_id='$userID[$i]', trainer_id='$delete_id[$i]',quantity='$quan[$i]' WHERE cart_id = '$cart[$i]'";
+        // for($i=0;$i<$amount_trainer;$i++){
+        $sql = "UPDATE cart SET user_id='$userID', trainer_id='$delete_id',quantity='$quan' WHERE cart_id = '$cart'";
         $result = $this->conn->query($sql);
-    }
+    // }
 
-        if($result == false){
-            // die('cannot edit cart'.$this->conn->connect_error);
-            header('location: cart.php');
-        }else{
-            header('location: cart.php');
-        }
+        // if($result == false){
+        //     die('cannot edit cart'.$this->conn->connect_error);
+        //     // header('location: cart.php');
+        // }else{
+        //     header('location: cart.php');
+        // }
     }
 
     public function display($id){
