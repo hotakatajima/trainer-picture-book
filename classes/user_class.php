@@ -109,6 +109,62 @@ class User extends Database{
         } 
     }
 
+    // ------ favorite -------------------------
+    public function add_favorite($x,$y){
+        $sql = "INSERT INTO favorite(user_id,trainer_id,quantity)VALUES('$y','$x','1')";
+        $result = $this->conn->query($sql);
+
+        if($result == false){
+            die('cannot add favorite'.$this->conn->connect_error);
+        }else{
+            header('location: trainerlist_new.php');
+        }
+    }
+
+    public function display_favorite($id){
+        $sql = "SELECT * FROM favorite INNER JOIN users ON favorite.user_id = users.user_id INNER JOIN product ON favorite.trainer_id = product.trainer_id WHERE users.user_id ='$id' ";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows>0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[]=$rows;
+            }return $row;
+        }else{
+            header('location:cart_favorite_none.php');
+        } 
+    }
+
+    public function delete_favorite($cart_id){
+
+        $sql = "DELETE FROM favorite WHERE cart_id = '$cart_id' ";
+        $result = $this->conn->query($sql);
+
+        if($result == false){
+            die('cannot delete cart'.$this->conn->connect_error);
+        }else{
+            header('location: trainerlist_favorite.php');
+        }
+    }
+
+    public function add_carts($x,$y,$z){
+        $sql = "INSERT INTO cart(user_id,trainer_id,quantity)VALUES('$y','$x','1')";
+        $result = $this->conn->query($sql);
+
+        if($result == false){
+            die('cannot add favorite'.$this->conn->connect_error);
+        }else{
+            $sql = "DELETE FROM favorite WHERE cart_id = '$z' ";
+            $result = $this->conn->query($sql);
+
+            if($result == false){
+                die('cannot delete favorite cart'.$this->conn->connect_error);
+            }else{
+                header('location: trainerlist_favorite.php');
+            }
+        }
+    }
+
 
     // public function add_another($settle,$coupon,$user_id){
     //     $amount_settle = count($settle);

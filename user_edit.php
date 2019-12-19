@@ -83,26 +83,6 @@ $got = $Admin->display_onetrainers($userID);
                 font-size: 14px;
             }
 
-            .btn-google {
-            color: white;
-            background-color: #ea4335;
-            border-radius: 5rem;
-            letter-spacing: .1rem;
-            font-weight: bold;
-            /* padding: 1rem; */
-            transition: all 0.2s;
-            }
-
-            .btn-facebook {
-            color: white;
-            background-color: #3b5998;
-            border-radius: 5rem;
-            letter-spacing: .1rem;
-            font-weight: bold;
-            /* padding: 1rem; */
-            transition: all 0.2s;
-            }
-
             .fas{
               font-size:160px;
             }
@@ -135,7 +115,7 @@ $got = $Admin->display_onetrainers($userID);
                 width:1200px;
                 table-layout: fixed;
                 font-size:24px;
-                margin-top:600px;
+                margin-top:650px;
             }
 
             td{
@@ -214,7 +194,8 @@ $got = $Admin->display_onetrainers($userID);
             echo "<form action='user_action.php' method='post'>";
             echo "<input type='hidden' name='trainer_id' value='$userID'>";
             echo "<input type='hidden' name='user_id' value='$user_id'>";
-            echo "<button class='btn btn-lg btn-danger btn-block text-uppercase p-5' type='submit' name='add_cart'>PUT INTO CART</button>"; 
+            echo "<button class='btn btn-lg btn-danger btn-inlile-block text-uppercase p-5 w-25 mr-5' type='submit' name='add_favorite'>FAVORITE</button>"; 
+            echo "<button class='btn btn-lg btn-danger btn-inlile-block text-uppercase p-5 w-25 ml-5' type='submit' name='add_cart'>CART</button>"; 
             echo "</form>";
             echo "</td>";
             echo "</tr>";
