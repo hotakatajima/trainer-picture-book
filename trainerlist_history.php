@@ -83,7 +83,7 @@
                 foreach($display as $key => $row){ 
 
                     $image = $row['trainer_image'];
-                    // $delete_id = $row['trainer_id'];
+                    $delete_id = $row['trainer_id'];
                     // $cart_id = $row['cart_id'];
 
                     echo "<table class='table-striped w-50 text-center mx-auto decline mb-5 table-bordered'>";
@@ -118,14 +118,11 @@
                       echo "<td>SUM</td><td>".$row['trainer_price']*$row['quantity']."</td>";
                       echo "</tr>";
            
-                    //   echo "<tr>";
-                    //   echo "<td colspan=2>";
-                    //   echo "<input type='hidden' name='user_id[]' value='$userID'>";
-                    //   echo "<input type='hidden' name='delete_id[]' value='$delete_id'>";
-                    //   echo "<input type='hidden' name='cart_id[]' value='$cart_id'>";
-                    //   echo "<button class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1' type='submit' name=''>PUT INTO CART AGAIN</button>"; 
-                    //   echo "</td>";
-                    //   echo "</tr>";
+                      echo "<tr>";
+                      echo "<td colspan=2>";
+                      echo "<a href='user_action.php?actiontype=putcartin&user_id=$userID&delete_id=$delete_id'  class='btn btn-lg btn-danger btn-block text-uppercase mr-1 ml-1'>PUT INTO CART</a>";
+                      echo "</td>";
+                      echo "</tr>";
         
                       echo "</table>";
                 }               

@@ -28,90 +28,6 @@
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
 
-  <style>
-      .fa-arrow-circle-down{
-        font-size:160px;
-      }
-
-      html,
-            body {
-            height: 100%;
-            }
-
-            #page-content {
-            flex: 1 0 auto;
-            }
-
-            #sticky-footer {
-            flex-shrink: none;
-            }
-
-            .d-inline-block{
-                width :350px;
-                height :550px;
-            }
-
-            .alert-primary{
-                font-size: 18px;
-                padding: 10px;
-            }
-
-            .text-uppercase{
-                font-size: 14px;
-            }
-
-            .btn-google {
-            color: white;
-            background-color: #ea4335;
-            border-radius: 5rem;
-            letter-spacing: .1rem;
-            font-weight: bold;
-            /* padding: 1rem; */
-            transition: all 0.2s;
-            }
-
-            .btn-facebook {
-            color: white;
-            background-color: #3b5998;
-            border-radius: 5rem;
-            letter-spacing: .1rem;
-            font-weight: bold;
-            /* padding: 1rem; */
-            transition: all 0.2s;
-            }
-
-            .fas{
-              font-size:160px;
-            }
-            
-            .img-thumbnail{
-              width:190px;
-              height:190px;
-              overflow: hidden;
-            }
-
-            .addittion a{
-              font-size: 22px;
-            }
-
-            .ceter{
-              margin:0 auto;
-            }
-
-            td{
-                padding:20px;
-            }
-
-            .buy{
-                font-size:24px;
-            }
-
-            .hotaka{
-                font-size:24px;
-            }
-
-  </style>
-
 </head>
 
 <body class="d-flex flex-column">
@@ -122,7 +38,7 @@
         <div class="w-100 vh-100">
         <div id="page-content">
         <div class="row justify-content-center m-0 text-center">
-            <h2 class="display-2">You haven't put something into cart...</h2><br>
+            <h2 class="display-2">You haven't put something until now...<i class="fas fa-cart-plus"></i></h2><br>
             <h2 class="display-2">Please go back to TOP page and continue to do shopping!</h2>
             <a href="trainerlist_new.php" role="button" class="btn btn-lg btn-danger btn-block text-uppercase p-5 mt-5 hotaka">GO BACK TO TOP</a>
         </div>  

@@ -165,6 +165,31 @@ class User extends Database{
         }
     }
 
+    public function add_cartin($x,$y){
+        $sql = "INSERT INTO cart(user_id,trainer_id,quantity)VALUES('$y','$x','1')";
+        $result = $this->conn->query($sql);
+
+        if($result == false){
+            die('cannot add cart from history'.$this->conn->connect_error);
+        }else{
+                header('location: trainerlist_history.php');
+            }
+    }
+
+    public function displayoneuser($x){
+        $sql = "SELECT * FROM login WHERE login_id = '$x' ";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows>0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[]=$rows;
+            }return $row;
+        }else{
+            die('cannot display one user'.$this->conn->connect_error);
+        } 
+    }
+
 
     // public function add_another($settle,$coupon,$user_id){
     //     $amount_settle = count($settle);

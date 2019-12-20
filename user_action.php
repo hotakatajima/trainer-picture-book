@@ -57,6 +57,17 @@ if($_GET['actiontype'] == 'putcart'){
     $Users->add_carts($trainer_id,$user_id,$cart_id);
 }
 
+// --------------history-------------------
+
+if($_GET['actiontype'] == 'putcartin'){
+
+    $trainer_id = $_GET['delete_id'];
+    $user_id = $_GET['user_id'];
+
+    $Users->add_cartin($trainer_id,$user_id);
+}
+
+
 // --------------confirm-------------------
 
 if(isset($_POST['confirm'])){
@@ -69,14 +80,5 @@ if(isset($_POST['confirm'])){
 
     $Users->add_confirm($userID,$delete_id,$quan,$cart_id);
 }
-
-// if(isset($_POST['enter'])){
-//     $settle = $_POST['settle'];
-//     $coupon = $_POST['coupon'];
-//     $user_id = $_POST['user_id'];
-
-//     $Users->add_another($settle,$coupon,$user_id);
-// }
-
 
 ?>
