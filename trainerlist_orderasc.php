@@ -1,13 +1,8 @@
 <?php
 
     include 'admin_action.php';
-
-    // if(empty($_SESSION['login_id'])){
-    //   header('location: login.php');
-    // }else{
-    //   $userID = $_SESSION['login_id'];
-    //   $didi = $Admin->display_onetrainers($userID);
-    // }
+    $userID = $_SESSION['login_id'];
+    $didi = $Admin->displayoneuser($userID);
 
 ?>
 
@@ -140,9 +135,9 @@
 
 </head>
 
-<body class="d-flex flex-column">
-
-    <?php include 'sidebar.php' ?>
+<body class="d-flex flex-column"> 
+  
+  <?php include 'sidebar.php' ?>
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="about">
         <div class="w-100 vh-100">
@@ -155,13 +150,12 @@
 
           <?php  
 
-            $list = $Admin->display_trainer();
+            $list = $Admin->displayorder_trainerasc();
 
             foreach($list as $key => $row){
               $userID = $row['trainer_id'];
 
                 echo "<div class='alert alert-primary d-inline-block w-100 mt-5 display-3'>";
-
 
                 if($row['trainer_image']== null){
                   echo "<i class='fas fa-user post'></i><br><br><br>";
@@ -188,12 +182,13 @@
                 echo "<div class='big'>";
                 echo "PRICE(per hour) : ";
                 echo $row['trainer_price'];
-                echo "</div><br>";    
+                echo "</div><br>";           
 
                 echo "ADDRESS : <br>";
                 echo "<div class='big'>";
                 echo $row['trainer_address']."<br>";
-                echo "</div>";                  
+                echo "</div>";               
+                
                 
                 echo "<a href='user_edit.php?trainer_id=$userID' role='button' class='btn btn-lg btn-google btn-inline-block p-4 text-uppercase jojo'>READ MORE</a>";
                 echo "</div>";
@@ -203,9 +198,9 @@
 
           ?>
 
+            </div>
           </div>
         </div>
-      </div>
       </div> 
     </section>      
   </body>

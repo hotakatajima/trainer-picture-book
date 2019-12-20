@@ -3,16 +3,6 @@
 include 'database.php';
 
 class Admin extends Database{
-//     public function getoneuser($admin_ID){
-//         $displayadmin = "SELECT * FROM users WHERE login_id = '$admin_ID'";
-//         $result = $this->conn->query($displayadmin);
-
-//         if($result == false){
-//             die('cannot get one admin'.$this->conn->connect_error);
-//         }else{
-//             return $result->fetch_assoc();
-//         }
-//     }
 
     public function add_trainer($fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image,$price){
 
@@ -33,6 +23,62 @@ class Admin extends Database{
 
     public function display_trainer(){
         $displaytrainer = "SELECT * FROM product";
+        $result = $this->conn->query($displaytrainer); 
+
+        if($result->num_rows >0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[] = $rows;
+            }return $row;
+        }else{
+            return false;
+        }
+    }
+
+    public function displayorder_trainerdesc(){
+        $displaytrainer = "SELECT * FROM product ORDER BY trainer_price desc";
+        $result = $this->conn->query($displaytrainer); 
+
+        if($result->num_rows >0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[] = $rows;
+            }return $row;
+        }else{
+            return false;
+        }
+    }
+
+    public function displayorder_trainerasc(){
+        $displaytrainer = "SELECT * FROM product ORDER BY trainer_price asc";
+        $result = $this->conn->query($displaytrainer); 
+
+        if($result->num_rows >0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[] = $rows;
+            }return $row;
+        }else{
+            return false;
+        }
+    }
+
+    public function displayorder_trainermale(){
+        $displaytrainer = "SELECT * FROM product WHERE trainer_gender = 'Male'";
+        $result = $this->conn->query($displaytrainer); 
+
+        if($result->num_rows >0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[] = $rows;
+            }return $row;
+        }else{
+            return false;
+        }
+    }
+
+    public function displayorder_trainerfemale(){
+        $displaytrainer = "SELECT * FROM product WHERE trainer_gender = 'Female'";
         $result = $this->conn->query($displaytrainer); 
 
         if($result->num_rows >0){

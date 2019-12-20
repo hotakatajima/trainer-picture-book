@@ -24,6 +24,26 @@ if(isset($_POST['admin_add'])){
     $Admin->add_trainer($fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image,$price);
 }
 
+if(isset($_POST['user_order'])){
+    $order = $_POST['order'];
+
+    if($order == 'Ascending order'){
+        header('location: trainerlist_orderasc.php');
+    }elseif($order == 'Descending order'){
+        header('location: trainerlist_orderdesc.php');
+    }
+}
+
+if(isset($_POST['user_gender'])){
+    $gender = $_POST['gender'];
+
+    if($gender == 'Male'){
+        header('location: trainerlist_male.php');
+    }else{
+        header('location: trainerlist_female.php');
+    }
+}
+
 if(isset($_POST['admin_edit'])){
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];

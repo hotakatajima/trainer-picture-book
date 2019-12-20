@@ -2,13 +2,6 @@
 
     include 'admin_action.php';
 
-    // if(empty($_SESSION['login_id'])){
-    //   header('location: login.php');
-    // }else{
-    //   $userID = $_SESSION['login_id'];
-    //   $didi = $Admin->display_onetrainers($userID);
-    // }
-
 ?>
 
 <!DOCTYPE html>
@@ -151,13 +144,8 @@
       <div class="row justify-content-center m-0 text-center">
         <div class="col-md-12 p-0">
             
-          <form action="admin_action.php" method="post">
-            <div class="form-group mt-5">
-                <div class="alert alert-danger w-75 mb-5 mx-auto">Sorry, trainers you entered doesnt exist. Please search again.</div>
-                <input type="text" name="admin_search" class="form-control w-75 d-inline mb-5" placeholder="Search trainer username">
-                <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="user_serch">GO</button>
-            </div>
-          </form>
+          <div class="alert alert-danger w-75 mb-5 mx-auto">Sorry, trainers you entered doesnt exist. Please search again.</div>
+          <?php include 'forms.php' ?>
 
           <?php  
 
