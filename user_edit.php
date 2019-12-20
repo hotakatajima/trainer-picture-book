@@ -201,14 +201,7 @@ $got = $Admin->display_onetrainers($userID);
             echo "</tr>";
 
 
-            echo "</table>";
-
-            // echo "<div class='text-center mb-5'>";
-            // echo "<a href='admin_edit_scc.php?trainer_id=$userID' role='button' class='ax-auto btn btn-lg btn-google btn-inline-block text-uppercase m-5'>Edit this trainer</a>";
-            // echo "<a href='admin_delete.php?trainer_id=$userID' role='button' class='btn btn-lg btn-facebook btn-inline-block text-uppercase m-5'>Delete this trainer</a>";
-            // echo "<hr>";
-            // echo "<a href='admin.php' role='button' class='btn btn-lg btn-secondary  btn-inline-block text-uppercase m-5'>Go back to admin</a>";
-            // echo "</div>";
+            echo "</table>"; 
           ?>
 
     </section>      

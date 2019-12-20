@@ -67,6 +67,20 @@ if($_GET['actiontype'] == 'putcartin'){
     $Users->add_cartin($trainer_id,$user_id);
 }
 
+// --------------setting-------------------
+
+if(isset($_POST['setting'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $uname = $_POST['uname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $id = $_POST['id'];
+    // $images = $_POST['images'];
+
+    $Users->edit_setting($fname,$lname,$uname,$email,$password,$id);
+}
+
 
 // --------------confirm-------------------
 

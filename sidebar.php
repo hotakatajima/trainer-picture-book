@@ -23,6 +23,9 @@
           <a class="nav-link js-scroll-trigger" href="trainerlist_history.php">Purchase History</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="setting.php">Setting</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="logout.php">Logout</a>
         </li>
       </ul>

@@ -1,13 +1,7 @@
 <?php
 
     include 'admin_action.php';
-
-    // if(empty($_SESSION['login_id'])){
-    //   header('location: login.php');
-    // }else{
-    //   $userID = $_SESSION['login_id'];
-    //   $didi = $Admin->display_onetrainers($userID);
-    // }
+    $userID = $_SESSION['login_id'];
 
 ?>
 

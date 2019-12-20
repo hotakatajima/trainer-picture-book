@@ -190,21 +190,31 @@ class User extends Database{
         } 
     }
 
+ // ------ setting -------------------------
+    public function edit_setting($fname,$lname,$uname,$email,$password,$userID){
+        $sql = "UPDATE users INNER JOIN login ON users.login_id = login.login_id SET user_fname = '$fname',user_lname = '$lname',username = '$uname', user_email = '$email',password = '$password' WHERE users.user_id = '$userID'"; 
+        $result = $this->conn->query($sql);
 
-    // public function add_another($settle,$coupon,$user_id){
-    //     $amount_settle = count($settle);
+        if($result == false){
+            die('cannot edit setting'.$this->conn->connect_error);
+        }else{
+            header('location: setting.php');
+        }
+    }
 
-    //     for($i=0;$i<$amount_settle;$i++){
-    //     $sql = "UPDATE cart SET user_id = '',trainer_id = '',quantity = '',settle = '$settle[$i]',coupon = '$coupon[$i]' WHERE userid = '$user_id'";
-    //     $result = $this->conn->query($sql);
-    //     }
+    public function display_onesetting($userID){
+        $sql = "SELECT * FROM users INNER JOIN login ON users.login_id = login.login_id WHERE users.user_id = '$userID'";
+        $result = $this->conn->query($sql);
 
-    //     if($result == false){
-    //         die('cannot add cart'.$this->conn->connect_error);
-    //     }else{
-    //         header('location: cart.php');
-    //     }
-    // }
+        if($result->num_rows>0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[]=$rows;
+            }return $row;
+        }else{
+            die('cannot display one setting'.$this->conn->connect_error);
+        } 
+    }
 
 }
 ?>
