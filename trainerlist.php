@@ -1,6 +1,8 @@
 <?php
 
     include 'admin_action.php';
+    $userID = $_SESSION['login_id'];
+    $didi = $Admin->displayoneuser($userID);
 
 ?>
 
@@ -139,7 +141,14 @@
 
    <section class="resume-section p-3 p-lg-5 d-flex align-items-center">
       <div class="w-100">
-        <h1 class="mb-0">FIND YOUR FAVORITE
+        <h1 class="mb-0">WELCOME TO<span class="text-primary">
+          <?php  
+            foreach($didi as $key => $row){
+              echo $row['username'];
+              echo " !!!</span><br>";
+            }
+          ?>
+          FIND YOUR FAVORITE
           <span class="text-primary">TRAINER</span>
         </h1>
         <div class="subheading mb-5">If you have some questions, you can contact

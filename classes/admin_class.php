@@ -115,6 +115,21 @@ class Admin extends Database{
         }
     }
 
+    public function displayoneuser($x){
+        $sql = "SELECT * FROM login WHERE login_id = '$x' ";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows>0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[]=$rows;
+            }return $row;
+        }else{
+            die('cannot display one user'.$this->conn->connect_error);
+        } 
+    }
+
+
 }
 
 ?>

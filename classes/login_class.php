@@ -5,22 +5,29 @@ include 'database.php';
 class Login extends Database{
 
     public function add_user($fname,$lname,$uname,$email,$password){
-        $insetusers = "INSERT INTO login(username,password)VALUES('$uname','$password')";
-        $results = $this->conn->query($insetusers);
+        $sql = "SELECT * FROM login WHERE password = '$password' ";
+        $resultss = $this->conn->query($sql);
 
-        if($results == true){
-            $loginID = $this->conn->insert_id;
-            
-            $sql = "INSERT INTO users(user_fname,user_lname,user_email,user_status,login_id)VALUES('$fname','$lname','$email','user','$loginID')";
-            $result = $this->conn->query($sql);
+        if($resultss->num_rows==0){
+            $insetusers = "INSERT INTO login(username,password)VALUES('$uname','$password')";
+            $results = $this->conn->query($insetusers);
 
-            if($result == false){
-                die('cannot add user'.$this->conn->connect_error);
+            if($results == true){
+                $loginID = $this->conn->insert_id;
+                
+                $sql = "INSERT INTO users(user_fname,user_lname,user_email,user_status,login_id)VALUES('$fname','$lname','$email','user','$loginID')";
+                $result = $this->conn->query($sql);
+
+                if($result == false){
+                    die('cannot add user'.$this->conn->connect_error);
+                }else{
+                    header('location: login.php');
+                }
             }else{
-                header('location: login.php');
+                die('cannot add users'.$this->conn->connect_error);
             }
         }else{
-            die('cannot add users'.$this->conn->connect_error);
+            header('location: register_none.php');
         }
     }
 
