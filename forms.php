@@ -1,4 +1,4 @@
-<form action="admin_action.php" method="post"">
+<form action="admin_action.php" method="post">
     <div class="form-group mt-5">
         <input type="text" name="admin_search" class="form-control w-75 d-inline mb-5" placeholder="Search trainer username or trainer address">
         <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="user_serch">GO</button><br>

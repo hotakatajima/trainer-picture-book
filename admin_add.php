@@ -6,6 +6,11 @@ if(empty($_SESSION['login_id'])){
   header('location: login.php');
 }
 
+if($_SESSION['user_status']=='user'){
+  header('location: trainerlist_new.php');
+}
+
+
 ?>
 
 <!doctype html>

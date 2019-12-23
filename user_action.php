@@ -2,8 +2,6 @@
 
 include 'classes/user_class.php';
 
-session_start();
-
 $Users = new User;
 
 if(isset($_POST['add_cart'])){

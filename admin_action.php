@@ -2,12 +2,7 @@
 
 include 'classes/admin_class.php';
 
-session_start();
-
-if(empty($_SESSION['login_id'])){
-    header('location: login.php');
-}else{
-    $Admin = new Admin;
+$Admin = new Admin;
 
 if(isset($_POST['admin_add'])){
     $fname = $_POST['fname'];
@@ -85,7 +80,5 @@ if(isset($_POST['user_serch'])){
     }
 }
 
-
-}
 
 ?>
