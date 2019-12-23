@@ -74,11 +74,11 @@ if(isset($_POST['setting'])){
     $lname = $_POST['lname'];
     $uname = $_POST['uname'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     $id = $_POST['id'];
-    // $images = $_POST['images'];
+    $image = $_FILES['images']['name'];
 
-    $Users->edit_setting($fname,$lname,$uname,$email,$password,$id);
+    $Users->edit_setting($fname,$lname,$uname,$email,$password,$id,$image);
 }
 
 

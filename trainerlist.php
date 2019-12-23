@@ -178,7 +178,7 @@
       <div class="row justify-content-center m-0 text-center">
         <div class="col-md-12 p-0">
             
-          <?php include 'forms.php' ?>
+        <?php include 'sidebar_admin.php' ?>
 
           <?php  
 

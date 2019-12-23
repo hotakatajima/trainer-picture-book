@@ -175,6 +175,20 @@ class Admin extends Database{
         } 
     }
 
+    public function display_onesetting($userID){
+        $sql = "SELECT * FROM users INNER JOIN login ON users.login_id = login.login_id WHERE users.user_id = '$userID'";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows>0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[]=$rows;
+            }return $row;
+        }else{
+            die('cannot display one setting'.$this->conn->connect_error);
+        } 
+    }
+
 
 }
 

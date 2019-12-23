@@ -32,7 +32,7 @@
 
 <body class="d-flex flex-column">
 
-    <?php include 'sidebar.php' ?>
+    <?php include 'sidebar_user.php' ?>
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center">
         <div class="w-100 vh-100">

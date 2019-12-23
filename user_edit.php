@@ -1,8 +1,9 @@
 <?php
 
 include 'admin_action.php';
-$userID = $_GET['trainer_id'];
-$got = $Admin->display_onetrainers($userID);
+$userIDs = $_GET['trainer_id'];
+$userID = $_SESSION['login_id'];
+$got = $Admin->display_onetrainers($userIDs);
 
 ?>
 
@@ -134,7 +135,7 @@ $got = $Admin->display_onetrainers($userID);
 <body class="d-flex flex-column">
 <section class="resume-section d-flex align-items-center">
 
-        <?php include 'sidebar.php' ?>
+  <?php include 'sidebar_admin.php' ?>
 
         <?php  
             $user_id = $_SESSION['login_id'];
@@ -192,7 +193,7 @@ $got = $Admin->display_onetrainers($userID);
             echo "<tr>";
             echo "<td colspan=2>";
             echo "<form action='user_action.php' method='post'>";
-            echo "<input type='hidden' name='trainer_id' value='$userID'>";
+            echo "<input type='hidden' name='trainer_id' value='$userIDs'>";
             echo "<input type='hidden' name='user_id' value='$user_id'>";
             echo "<button class='btn btn-lg btn-danger btn-inlile-block text-uppercase p-5 w-25 mr-5' type='submit' name='add_favorite'>FAVORITE</button>"; 
             echo "<button class='btn btn-lg btn-danger btn-inlile-block text-uppercase p-5 w-25 ml-5' type='submit' name='add_cart'>CART</button>"; 

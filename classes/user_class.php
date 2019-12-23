@@ -191,12 +191,17 @@ class User extends Database{
     }
 
  // ------ setting -------------------------
-    public function edit_setting($fname,$lname,$uname,$email,$password,$userID){
-        $sql = "UPDATE users INNER JOIN login ON users.login_id = login.login_id SET user_fname = '$fname',user_lname = '$lname',username = '$uname', user_email = '$email',password = '$password' WHERE users.user_id = '$userID'"; 
+    public function edit_setting($fname,$lname,$uname,$email,$password,$userID,$image){
+        $image =  $_FILES['images']['name'];
+        $target_dir = "upload/";
+        $target_file = $target_dir .basename($_FILES['image']['name']);
+
+        $sql = "UPDATE users INNER JOIN login ON users.login_id = login.login_id SET user_fname = '$fname',user_lname = '$lname',username = '$uname', user_email = '$email',password = '$password', user_image = '$image' WHERE users.user_id = '$userID'"; 
         $result = $this->conn->query($sql);
 
         if($result == false){
             die('cannot edit setting'.$this->conn->connect_error);
+            move_uploaded_file($_FILES['images']['tmp_name'],$target_file);
         }else{
             header('location: setting.php');
         }
