@@ -1,3 +1,13 @@
+<?php
+    if(empty($_SESSION['login_id'])){
+      header('location: login.php');
+    }elseif($_SESSION['user_status']=='admin'){
+      header('location: admin.php');
+    }else{
+      $userID = $_SESSION['login_id'];
+    }
+?>
+
 <form action="admin_action.php" method="post">
     <div class="form-group mt-5">
         <input type="text" name="admin_search" class="form-control w-75 d-inline mb-5" placeholder="Search trainer username or trainer address">

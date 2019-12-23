@@ -1,7 +1,14 @@
 <?php
 
     include 'user_action.php';
-    $userID = $_SESSION['login_id'];
+    
+    if(empty($_SESSION['login_id'])){
+      header('location: login.php');
+    }elseif($_SESSION['user_status']=='admin'){
+      header('location: admin.php');
+    }else{
+      $userID = $_SESSION['login_id'];
+    }
 
 ?>
 

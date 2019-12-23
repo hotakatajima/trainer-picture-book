@@ -2,8 +2,6 @@
 
 include 'classes/login_class.php';
 
-session_start();
-
 if(!empty($_SESSION['login_id'])){
 
   if($_SESSION['user_status']=='admin'){
@@ -11,6 +9,7 @@ if(!empty($_SESSION['login_id'])){
   }else{
     header('location: trainerlist.php');
   }
+
 }
 
 ?>

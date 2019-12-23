@@ -1,8 +1,15 @@
 <?php
 
     include 'user_action.php';
-    $userID = $_SESSION['login_id'];
 
+    if(empty($_SESSION['login_id'])){
+      header('location: login.php');
+    }elseif($_SESSION['user_status']=='admin'){
+      header('location: admin.php');
+    }else{
+      $userID = $_SESSION['login_id'];
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +96,7 @@
                 foreach($dispaly as $key => $row){
                   echo "<h3>TRAINER NAME :".$row['trainer_fname'].$row['trainer_lname']."</h3>";
                   echo "<h3>PRICE :".$row['trainer_price']."</h3>";
-                  echo "<h3>QUANTITY :".$row['quantity']."</h3>";
+                  echo "<h3>TIME(hour) :".$row['quantity']."</h3>";
                   echo "<h3>SUM :".$row['trainer_price']*$row['quantity']."</h3>";
                   echo "<hr>";
 
@@ -141,7 +148,6 @@
           </table>
            
       <?php
-                // $dispaly = $Users->display_cart($userID);
                 foreach($dispaly as $key => $row){
 
                     $image = $row['trainer_image'];
@@ -169,20 +175,15 @@
                       echo "</tr>";
   
                       echo "<tr>";
-                      echo "<td>MONER PER HOUR</td><td>".$row['trainer_price']."</td>";
+                      echo "<td>MONEY PER HOUR</td><td>".$row['trainer_price']."</td>";
                       echo "</tr>";
   
                       echo "<form action='user_action.php' method='post'>";
                       echo "<tr>";
-                      echo "<td>QUANTITY(hour)</td>";
+                      echo "<td>TIME(hour)</td>";
                       echo "<td>";
                       echo "<div class='form-group'>";
-                      // echo "<select name='quan[]' class='form-control' required>";
-                      // for($i=1;$i<=100;$i++){
-                      //     echo "<option value='$i'>$i</option>";    
-                      // }
                       echo "<input type='number' name='quan[]' class='form-control' >";
-                      // echo "</select>";
                       echo "</div>";
                       echo "</td>";
                       echo "</tr>"; 
@@ -196,7 +197,6 @@
                       echo "<a href='user_action.php?actiontype=delete&cart_id=$cart_id'  class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1'>DELETE THIS TRAINER</a>";
                       echo "</td>";
                       echo "</tr>";
-                      // echo "</form>";
         
                       echo "</table>";
                 }               

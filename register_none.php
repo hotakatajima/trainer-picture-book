@@ -1,3 +1,19 @@
+<?php
+
+include 'classes/login_class.php';
+
+if(!empty($_SESSION['login_id'])){
+
+  if($_SESSION['user_status']=='admin'){
+    header('location: admin.php');
+  }else{
+    header('location: trainerlist.php');
+  }
+
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

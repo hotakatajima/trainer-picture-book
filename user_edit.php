@@ -1,9 +1,16 @@
 <?php
 
 include 'admin_action.php';
-$userIDs = $_GET['trainer_id'];
-$userID = $_SESSION['login_id'];
-$got = $Admin->display_onetrainers($userIDs);
+
+if(empty($_SESSION['login_id'])){
+  header('location: login.php');
+}elseif($_SESSION['user_status']=='admin'){
+  header('location: admin.php');
+}else{
+  $userIDs = $_GET['trainer_id'];
+  $userID = $_SESSION['login_id'];
+  $got = $Admin->display_onetrainers($userIDs);
+}
 
 ?>
 
