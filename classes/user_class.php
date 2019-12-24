@@ -225,5 +225,31 @@ class User extends Database{
         } 
     }
 
+    public function coupon($coupon,$settle){
+        $sql = "SELECT * FROM coupon WHERE coupon_number = '$coupon'";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows == 1){
+            header("location: cart.php?coupon={$coupon}&settle={$settle}");
+        }else{
+            header("location: cart_discount.php?settle={$settle}");
+        } 
+    }
+
+    public function display_one_coupon($discount){
+        $sql = "SELECT * FROM coupon WHERE coupon_number = '$discount'";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows>0){
+            // $row = array();
+            // while($rows = $result->fetch_assoc()){
+            //     $row[]=$rows;
+            // }return $row;
+            return $result->fetch_assoc();
+        }else{
+            die('cannot display coupon'.$this->conn->connect_error);
+        } 
+    }
+
 }
 ?>

@@ -6,14 +6,9 @@
       header('location: login.php');
     }elseif($_SESSION['user_status']=='admin'){
       header('location: admin.php');
-    }elseif(empty($_GET['settle'])){
-      $userID = $_SESSION['login_id'];
     }else{
       $userID = $_SESSION['login_id'];
-      $discount = $_GET['coupon'];
       $settle = $_GET['settle'];
-      $couponss = $Users->display_one_coupon($discount);
-      $discaount_price = (100 - $couponss['coupon_discount']) / 100;
     }
     
 ?>
@@ -96,7 +91,7 @@
               <h2 class='display-2'>ESTIMATE</h2>
           </div>
           <div class='card-body'>
-          <?php
+            <?php
                 $sum = 0;
                 $dispaly = $Users->display_cart($userID);
 
@@ -109,35 +104,28 @@
 
                   $sum += $row['trainer_price']*$row['quantity'];
                 }
-
-                if(empty($_GET['settle'])){
-                  echo "<div class='alert alert-danger'>";
-                  echo "<h3>TOTAL AMOUNT: $sum</h3>";
-                  echo "</div>";
+                echo "<div class='alert alert-danger'>";
+                echo "<h3>TOTAL AMOUNT: $sum</h3>";
+                echo "<h3>COUPON: NOTHING</h3>";
+                echo "<h3>HOW TO SETTLE: ";
+                if($settle == 'Credit'){
+                  echo "Credit card (5% OFF)";
+                  echo "</h3>";
+                  echo "<h3>FIANL AMOUNT: ".floor($sum * 0.95)."</h3>";
+                }elseif($settle == 'Convenience'){
+                  echo "Convenience store payment (3% OFF)";
+                  echo "</h3>";
+                  echo "<h3>FIANL AMOUNT: ".floor($sum * 0.97)."</h3>";
                 }else{
-                  echo "<div class='alert alert-danger'>";
-                  echo "<h3>TOTAL AMOUNT: $sum</h3>";
-                  echo "<h3>COUPON: ".$discount."(".$couponss['coupon_discount']."% OFF)</h3>";
-                  echo "<h3>HOW TO SETTLE: ";
-                  if($settle == 'Credit'){
-                    echo "Credit card (5% OFF)";
-                    echo "</h3>";
-                    echo "<h3>FIANL AMOUNT: ".floor($sum * $discaount_price * 0.95)."</h3>";
-                  }elseif($settle == 'Convenience'){
-                    echo "Convenience store payment (3% OFF)";
-                    echo "</h3>";
-                    echo "<h3>FIANL AMOUNT: ".floor($sum * $discaount_price * 0.97)."</h3>";
-                  }else{
-                    echo "Bank transfer";
-                    echo "</h3>";
-                    echo "<h3>FIANL AMOUNT: ".floor($sum * $discaount_price)."</h3>";
-                  }
-                  echo "</div>";
+                  echo "Bank transfer";
+                  echo "</h3>";
+                  echo "<h3>FIANL AMOUNT: ".floor($sum)."</h3>";
                 }
+                echo "</div>";
             ?>
           </div>
         </div>
-           
+                   
       <?php
                 foreach($dispaly as $key => $row){
 
@@ -194,8 +182,8 @@
                     
 
           ?> 
-            </div>
-          </form>
+          </div>
+        </form>
 
           <table class='table-striped w-100 text-center mx-auto decline mb-5 table-bordered'>
           <form action="user_action.php" method="post">

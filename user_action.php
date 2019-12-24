@@ -93,10 +93,18 @@ if(isset($_POST['confirm'])){
     $userID = $_POST['user_id'];
     $delete_id = $_POST['delete_id'];
     $quan = $_POST['quan_id'];
-    // $settle = $_POST['settle'];
-    // $coupon = $_POST['coupon'];
 
     $Users->add_confirm($userID,$delete_id,$quan,$cart_id);
 }
+
+// --------------coupon-------------------
+
+if(isset($_POST['enter'])){
+    $coupon = $_POST['coupon'];
+    $settle = $_POST['settle'];
+ 
+    $Users->coupon($coupon,$settle);
+}
+
 
 ?>
