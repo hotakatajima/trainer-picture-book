@@ -2,9 +2,11 @@
 
     include 'classes/login_class.php';
 
-    // if(empty($_SESSION['login_id'])){
-    //     header('location: login.php');
-    // }
+    if(empty($_SESSION['login_id'])){
+        header('location: login.php');
+    }
+
+// ----------------------------------------------
 
     $Users = new Login;
 

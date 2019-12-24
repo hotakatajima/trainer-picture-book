@@ -2,6 +2,10 @@
 
 include 'database.php';
 
+if(empty($_SESSION['login_id'])){
+    header('location: login.php');
+}
+
 class Admin extends Database{
 
     public function add_trainer($fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$image,$price){

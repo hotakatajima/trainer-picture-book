@@ -2,6 +2,12 @@
 
 include 'classes/user_class.php';
 
+if(empty($_SESSION['login_id'])){
+    header('location: login.php');
+}
+
+// ----------------------------------------------
+
 $Users = new User;
 
 if(isset($_POST['add_cart'])){

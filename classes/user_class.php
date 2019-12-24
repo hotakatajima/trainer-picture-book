@@ -2,6 +2,10 @@
 
 include 'database.php';
 
+if(empty($_SESSION['login_id'])){
+    header('location: login.php');
+}
+
 class User extends Database{
     public function add_cart($trainer_id,$user_id){
         $sql = "INSERT INTO cart(user_id,trainer_id,quantity)VALUES('$user_id','$trainer_id','1')";
@@ -194,15 +198,15 @@ class User extends Database{
     public function edit_setting($fname,$lname,$uname,$email,$password,$userID,$image){
         $image =  $_FILES['images']['name'];
         $target_dir = "upload/";
-        $target_file = $target_dir .basename($_FILES['image']['name']);
+        $target_file = $target_dir .basename($_FILES['images']['name']);
 
         $sql = "UPDATE users INNER JOIN login ON users.login_id = login.login_id SET user_fname = '$fname',user_lname = '$lname',username = '$uname', user_email = '$email',password = '$password', user_image = '$image' WHERE users.user_id = '$userID'"; 
         $result = $this->conn->query($sql);
 
         if($result == false){
             die('cannot edit setting'.$this->conn->connect_error);
-            move_uploaded_file($_FILES['images']['tmp_name'],$target_file);
         }else{
+            move_uploaded_file($_FILES['images']['tmp_name'],$target_file);
             header('location: setting.php');
         }
     }

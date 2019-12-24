@@ -216,14 +216,9 @@ if($_SESSION['user_status']=='user'){
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                   </select>
-                <!-- <input type="email" id="trainergender" name="email" class="form-control" placeholder="Email" required>
-                <label for="traineremail">Email</label> -->
               </div>
 
-              <!-- <div class="form-label-group"> -->
-                <input type="file" name="image" class="mt-3 ml-5" placeholder="Image" maxlength="100">
-                <!-- <label for="trainerimage">Image</label> -->
-              <!-- </div> -->
+              <input type="file" name="image" class="mt-3 ml-5" placeholder="Image" maxlength="100">
              
               <button class="btn btn-lg btn-primary btn-block text-uppercase mt-5" type="submit" name="admin_add">Submit</button>
               <hr>

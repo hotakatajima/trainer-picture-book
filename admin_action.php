@@ -2,6 +2,12 @@
 
 include 'classes/admin_class.php';
 
+if(empty($_SESSION['login_id'])){
+    header('location: login.php');
+}
+
+// ----------------------------------------------
+
 $Admin = new Admin;
 
 if(isset($_POST['admin_add'])){
