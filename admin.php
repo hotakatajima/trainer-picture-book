@@ -8,7 +8,7 @@
       header('location: trainerlist_new.php');
     }else{
       $userID = $_SESSION['login_id'];
-      $didi = $Admin->display_onetrainers($userID);
+      $didi = $Admin->display_userstatus($userID);
     }
 
 ?>
@@ -113,6 +113,12 @@
 
             .logout{
               position :absolute;
+              top:140px;
+              right:50px;
+            }
+
+            .coupon{
+              position :absolute;
               top:50px;
               right:50px;
             }
@@ -125,7 +131,8 @@
       <div class="row justify-content-center m-0 text-center">
         <div class="col-md-12 p-0">
           <h1 class="font-weight-light mt-4 text-white">Welcome to admin page !!!</h1>
-          <p class="lead text-white-50"><?php echo $didi['trainer_fname'].$didi['trainer_lname'] ?> is qualified for editing database!!!</p>
+          <p class="lead text-white-50"><?php echo $didi['username'] ?> is qualified for editing database!!!</p>
+          <a href='admin_coupon.php' role='button' class='coupon btn btn-lg btn-danger p-3 pr-5 pl-5 text-uppercase'>Coupon</a>
           <a href='logout.php' role='button' class='logout btn btn-lg btn-danger p-3 pr-5 pl-5 text-uppercase'>Logout</a>
           
           <div class="addittion">

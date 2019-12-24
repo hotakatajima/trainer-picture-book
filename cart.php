@@ -184,8 +184,8 @@
                       echo "<input type='hidden' name='user_id[]' value='$userID'>";
                       echo "<input type='hidden' name='delete_id[]' value='$delete_id'>";
                       echo "<input type='hidden' name='cart_id[]' value='$cart_id'>";
-                      echo "<button class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1' type='submit' name='edit_cart'>EDIT THIS TRAINER</button>"; 
-                      echo "<a href='user_action.php?actiontype=delete&cart_id=$cart_id'  class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1'>DELETE THIS TRAINER</a>";
+                      echo "<button class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1' type='submit' name='edit_cart'>EDIT THIS</button>"; 
+                      echo "<a href='user_action.php?actiontype=delete&cart_id=$cart_id'  class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1'>DELETE THIS</a>";
                       echo "</td>";
                       echo "</tr>";
         

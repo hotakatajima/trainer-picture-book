@@ -129,7 +129,7 @@
                       echo "<tr>";
                       echo "<td colspan=2>";
                       echo "<a href='user_action.php?actiontype=putcart&user_id=$userID&delete_id=$delete_id&cart_id=$cart_id'  class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1'>PUT INTO CART</a>";
-                      echo "<a href='user_action.php?actiontype=deletes&favorite_id=$cart_id'  class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1'>DELETE THIS TRAINER</a>";
+                      echo "<a href='user_action.php?actiontype=deletes&favorite_id=$cart_id'  class='btn btn-lg btn-danger btn-inline-block text-uppercase mr-1 ml-1'>DELETE THIS</a>";
                       echo "</td>";
                       echo "</tr>";
                       echo "</form>";

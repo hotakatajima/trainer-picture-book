@@ -61,6 +61,13 @@ if(isset($_POST['admin_edit'])){
     $Admin->edit_trainer($id,$fname,$lname,$uname,$email,$description,$phone,$address,$trainergender,$images,$price);
 }
 
+if(isset($_POST['add_coupon'])){
+    $coupon_num = $_POST['coupon_num'];
+    $coupon_dis = $_POST['coupon_dis'];
+
+    $Admin->add_coupon($coupon_num,$coupon_dis);
+}
+
 if(isset($_POST['admin_serch'])){
     $search = $_POST['search'];
 

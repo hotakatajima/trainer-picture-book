@@ -106,6 +106,28 @@ class Admin extends Database{
         }
     }
 
+    public function display_userstatus($userID){
+        $displayalltrainer = "SELECT * FROM login WHERE login_id = '$userID'";
+        $result = $this->conn->query($displayalltrainer);
+
+        if($result == false){
+            die('cannot one trainer'.$this->conn->connect_error);
+        }else{
+            return $result->fetch_assoc();
+        }
+    }
+
+    public function add_coupon($coupon_num,$coupon_dis){
+        $sql = "INSERT INTO coupon(coupon_number,coupon_discount)VALUES($coupon_num,$coupon_dis)";
+        $result = $this->conn->query($sql);
+
+        if($result == false){
+            die('cannot add coupon'.$this->conn->connect_error);
+        }else{
+            header('location: admin.php');
+        }
+    }
+
     public function delete_trainer($userID){
         $delete_trainer = "DELETE FROM product WHERE trainer_id = '$userID'";
         $result = $this->conn->query($delete_trainer);
