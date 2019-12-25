@@ -117,16 +117,6 @@ class Admin extends Database{
         }
     }
 
-    public function add_coupon($coupon_num,$coupon_dis){
-        $sql = "INSERT INTO coupon(coupon_number,coupon_discount)VALUES($coupon_num,$coupon_dis)";
-        $result = $this->conn->query($sql);
-
-        if($result == false){
-            die('cannot add coupon'.$this->conn->connect_error);
-        }else{
-            header('location: admin.php');
-        }
-    }
 
     public function delete_trainer($userID){
         $delete_trainer = "DELETE FROM product WHERE trainer_id = '$userID'";
@@ -213,6 +203,43 @@ class Admin extends Database{
         }else{
             die('cannot display one setting'.$this->conn->connect_error);
         } 
+    }
+
+    public function add_coupon($coupon_num,$coupon_dis){
+        $sql = "INSERT INTO coupon(coupon_number,coupon_discount)VALUES($coupon_num,$coupon_dis)";
+        $result = $this->conn->query($sql);
+
+        if($result == false){
+            die('cannot add coupon'.$this->conn->connect_error);
+        }else{
+            header('location: admin_coupon.php');
+        }
+    }
+
+    public function display_coupon(){
+        $sql = "SELECT * FROM coupon";
+        $result = $this->conn->query($sql);
+
+        if($result->num_rows >0){
+            $row = array();
+            while($rows = $result->fetch_assoc()){
+                $row[] = $rows;
+            }return $row;
+        }else{
+            die('cannnot display coupon'.$this->conn->connect_error);
+        }
+    }
+
+    public function delete_coupon($id){
+        
+        $delete = "DELETE FROM coupon WHERE coupon_id = '$id'";
+        $result = $this->conn->query($delete);
+
+        if($result == false){
+            die('cannot delete coupon'.$this->conn->connect_error);
+        }else{
+            header('location: admin_coupon.php');
+        }
     }
 
 

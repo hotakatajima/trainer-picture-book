@@ -135,6 +135,15 @@ if($_SESSION['user_status']=='user'){
             background-color: #3b5998;
             }
 
+            table{
+                /* margin-top:100px; */
+                margin-bottom:50px;
+                width:1200px;
+                table-layout: fixed;
+                font-size:24px;
+                /* background: white; */
+            }
+
             /* Fallback for Edge
             -------------------------------------------------- */
 
@@ -188,6 +197,25 @@ if($_SESSION['user_status']=='user'){
         </div>
       </div>
     </div>
+
+    <?php
+    $alldisplay = $Admin->display_coupon();
+
+    echo "<table class='table-striped text-center mx-auto table-bordered'>";
+      echo "<tr>";
+        echo "<th>COUPON NUMBER</th><th>DISCOUNT PERCEBTAGE</th><th>DELETE</th>";
+      echo "</tr>";
+
+    foreach($alldisplay as $key => $row){
+      $userID = $row['coupon_id'];
+
+      echo "<tr>";
+        echo "<td>".$row['coupon_number']."</td><td>".$row['coupon_discount']."</td><td><a href='admin_coupondelete.php?coupon_id=$userID' role='button' class='btn btn-lg btn-google btn-inline-block text-uppercase m-5'>Delete</a></td>";
+      echo "</tr>";
+    }
+
+    echo "</table>";
+    ?>
   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
