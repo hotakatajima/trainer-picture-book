@@ -80,7 +80,7 @@ class User extends Database{
         $amount_trainer = count($delete_id);
 
             for($i=0;$i<$amount_trainer;$i++){
-            $sql = "INSERT INTO confirm(user_id,trainer_id,quantity,settle,coupon)VALUES('$userID[$i]','$delete_id[$i]','$quan[$i]','L','L')";
+            $sql = "INSERT INTO confirm(user_id,trainer_id,quantity)VALUES('$userID[$i]','$delete_id[$i]','$quan[$i]')";
             $result = $this->conn->query($sql);
         }
 

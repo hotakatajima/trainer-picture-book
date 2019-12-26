@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 26, 2019 at 08:25 AM
+-- Generation Time: Dec 26, 2019 at 02:57 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -33,6 +33,13 @@ CREATE TABLE `cart` (
   `quantity` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `user_id`, `trainer_id`, `quantity`) VALUES
+(1, 3, 1, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -43,9 +50,7 @@ CREATE TABLE `confirm` (
   `cart_id` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
   `trainer_id` int(100) NOT NULL,
-  `quantity` int(100) NOT NULL,
-  `settle` varchar(100) NOT NULL,
-  `coupon` varchar(100) DEFAULT NULL
+  `quantity` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -66,7 +71,8 @@ CREATE TABLE `coupon` (
 
 INSERT INTO `coupon` (`coupon_id`, `coupon_number`, `coupon_discount`) VALUES
 (1, 623, 30),
-(2, 708, 20);
+(2, 708, 20),
+(3, 115, 10);
 
 -- --------------------------------------------------------
 
@@ -122,6 +128,18 @@ CREATE TABLE `product` (
   `trainer_price` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`trainer_id`, `trainer_fname`, `trainer_lname`, `trainer_uname`, `trainer_email`, `trainer_description`, `trainer_phone`, `trainer_address`, `trainer_gender`, `trainer_image`, `trainer_price`) VALUES
+(1, 'shotaro', 'ueda', 'shotaro', 'shotaro@gmail.com', 'shotaro', '09098765432', 'Avida, IT Park', 'Male', 'shotro.jpg', 500),
+(2, 'hitomi', 'hanashiro', 'hitomi', 'hitomi@gmail.com', 'hitomi', '09059238328', 'share house, El Dorado', 'Female', 'hitomi.png', 200),
+(3, 'seiya', 'hirano', 'seiya', 'seiya@gmail.com', 'plase call me, all girls!!!', '09021928324', 'share house, El Dorado', 'Female', 'seiya.png', 350),
+(4, 'shodai', 'inoue', 'shodai', 'shotaro@gmail.com', 'shodai', '09042328593', 'Avida, IT Park', 'Male', 'shodai.png', 380),
+(5, 'tomo', 'tanaka', 'tomo', 'tomo@gmail.com', 'I&#039;m so kind, that&#039;s why I can teach well.', '09084298421', 'Avida, IT Park', 'Male', 'tomo.png', 390),
+(13, 'sho', 'ishihara', 'sho', 'sho@gmail.com', 'I&#039;m do handsome, don&#039;t be courting me!', '09057329458', 'Osaka, Japan', 'Female', 'sho.png', 180);
+
 -- --------------------------------------------------------
 
 --
@@ -144,8 +162,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_fname`, `user_lname`, `user_email`, `user_status`, `user_image`, `login_id`) VALUES
 (1, 'hotaka', 'tajima', 'hotaka120623@gmail.com', 'admin', NULL, 1),
-(2, 'shotaro', 'ueda', 'shotaro@gmail.com', 'user', NULL, 2),
-(3, 'cart', 'john', 'cart@gmail.com', 'user', NULL, 3);
+(3, 'cart', 'john', 'cart@gmail.com', 'user', 'cart.png', 3);
 
 --
 -- Indexes for dumped tables
@@ -201,7 +218,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `confirm`
@@ -213,13 +230,13 @@ ALTER TABLE `confirm`
 -- AUTO_INCREMENT for table `coupon`
 --
 ALTER TABLE `coupon`
-  MODIFY `coupon_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `coupon_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `favorite`
 --
 ALTER TABLE `favorite`
-  MODIFY `cart_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -231,7 +248,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `trainer_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `trainer_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
