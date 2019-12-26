@@ -15,7 +15,7 @@ if(isset($_POST['admin_add'])){
     $lname = $_POST['lname'];
     $uname = $_POST['uname'];
     $email = $_POST['email'];
-    $description = $_POST['description'];
+    $description = $Admin->h($_POST['description']);
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $trainergender = $_POST['trainergender'];
@@ -50,7 +50,7 @@ if(isset($_POST['admin_edit'])){
     $lname = $_POST['lname'];
     $uname = $_POST['uname'];
     $email = $_POST['email'];
-    $description = $_POST['description'];
+    $description = $Admin->h($_POST['description']);
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $trainergender = $_POST['trainergender'];

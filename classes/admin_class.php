@@ -18,11 +18,15 @@ class Admin extends Database{
         $result = $this->conn->query($inserttrainer);
 
         if($result == false){
-            die('cannot add trainer'.$this->conn->connect_error);
+            header('location: admin.php');
         }else{
             move_uploaded_file($_FILES['image']['tmp_name'],$target_file);
             header('location: admin.php');
         }
+    }
+
+    public function h($s) {
+        return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
     }
 
     public function display_trainer(){

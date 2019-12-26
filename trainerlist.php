@@ -186,6 +186,7 @@
         <div class="col-md-12 p-0">
             
         <?php include 'sidebar_admin.php' ?>
+        <?php include 'forms.php' ?>
 
           <?php  
 
