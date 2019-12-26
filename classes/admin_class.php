@@ -214,7 +214,7 @@ class Admin extends Database{
         $result = $this->conn->query($sql);
 
         if($result == false){
-            die('cannot add coupon'.$this->conn->connect_error);
+            header('location: admin_coupon.php');
         }else{
             header('location: admin_coupon.php');
         }
