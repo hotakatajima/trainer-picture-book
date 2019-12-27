@@ -123,6 +123,12 @@
               right:50px;
             }
 
+            .date{
+              position :absolute;
+              top:50px;
+              left:50px;
+            }
+
     </style>
   </head>
   <body class="d-flex flex-column">
@@ -130,8 +136,12 @@
     <!-- <div class="container text-center"> -->
       <div class="row justify-content-center m-0 text-center">
         <div class="col-md-12 p-0">
-          <h1 class="font-weight-light mt-4 text-white">Welcome to admin page !!!</h1>
+          <h1 class="font-weight-light mt-4 text-white">Welcome to admin page <?php echo $didi['username'] ?> !!!</h1>
           <p class="lead text-white-50"><?php echo $didi['username'] ?> is qualified for editing database!!!</p>
+          <?php echo "<p class='lead text-white-50 date'>";
+                date_default_timezone_set('Asia/Manila');
+                echo date('Y F d l');
+                echo "</p>" ?>
           <a href='admin_coupon.php' role='button' class='coupon btn btn-lg btn-danger p-3 pr-5 pl-5 text-uppercase'>Coupon</a>
           <a href='logout.php' role='button' class='logout btn btn-lg btn-danger p-3 pr-5 pl-5 text-uppercase'>Logout</a>
           
