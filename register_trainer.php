@@ -1,16 +1,17 @@
 <?php
 
 include 'classes/login_class.php';
+$userID = $_SESSION['login_id'];
 
-if(!empty($_SESSION['login_id'])){
+// if(!empty($_SESSION['login_id'])){
 
-  if($_SESSION['user_status']=='admin'){
-    header('location: admin.php');
-  }else{
-    header('location: trainerlist.php');
-  }
+//   if($_SESSION['user_status']=='admin'){
+//     header('location: admin.php');
+//   }else{
+//     header('location: trainerlist.php');
+//   }
 
-}
+// }
 
 ?>
 
@@ -25,7 +26,7 @@ if(!empty($_SESSION['login_id'])){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-            :root {
+                        :root {
             --input-padding-x: 1.5rem;
             --input-padding-y: .75rem;
             }
@@ -167,27 +168,70 @@ if(!empty($_SESSION['login_id'])){
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="alert alert-danger mt-5">This page doesnt work.</div>
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
-            <form action="login_action.php" method="post" class="form-signin">
+            <h5 class="card-title text-center">Trainer Register</h5>
+            <form action="login_action.php" method="post" class="form-signin" enctype="multipart/form-data">
+            <div class="form-label-group">
+                <input type="text" id="trainerfname" name="fname" class="form-control" placeholder="First Name" required autofocus maxlength="100">
+                <label for="trainerfname">First Name </label>
+              </div>
+
               <div class="form-label-group">
-                <input type="uname" id="inputUname" name="uname" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputUname">Username</label>
+                <input type="text" id="trainerlname" name="lname" class="form-control" placeholder="Last Name" required maxlength="100">
+                <label for="trainerlname">Last Name</label>
               </div>
 
-              <div class="form-label-group mb-5">
-                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
+              <div class="form-label-group">
+                <input type="text" id="traineruname" name="uname" class="form-control" placeholder="Username" required maxlength="100">
+                <label for="traineruname">Username</label>
+              </div>
+              
+              <div class="form-label-group">
+                <input type="email" id="traineremail" name="email" class="form-control" placeholder="Email" required maxlength="100">
+                <label for="traineremail">Email</label>
               </div>
 
-              <!-- <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
-              </div> -->
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="signin">Sign in</button>
+              <div class="form-label-group">
+                <input type="text" id="trainerdescription" name="description" class="form-control" placeholder="Description" required maxlength="100">
+                <label for="trainerdescription">Description</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="number" id="trainerphone" name="phone" class="form-control" placeholder="Phone" required maxlength="100">
+                <label for="trainerphone">Phone number</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="text" id="traineraddress" name="address" class="form-control" placeholder="Address" required maxlength="100">
+                <label for="traineraddress">Address(City)</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="number" id="wwww" name="price" class="form-control" placeholder="Price" required maxlength="100">
+                <label for="wwww">Price(per hour)</label>
+              </div>
+
+              <div class="form-label-group">
+                  <select name="trainergender" id="" class="form-control" required maxlength="100">
+                    <option value="" selected disabled>Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                  </select>
+              </div>
+
+              <input type="file" name="image" class="mt-3 ml-5" placeholder="Image" maxlength="100">
+              <input type="hidden" name="id" value="<?php echo $userID ?>">
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase mt-5" type="submit" name="trainer_add">register</button>
+              <hr>
+              <a href="login.php" class="btn btn-lg btn-google btn-block text-uppercase">Go back to login</a>
+              
+              <!-- <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="add_user">register</button>
               <hr class="my-4">
-              <a href="register.php" class="btn btn-lg btn-google btn-block text-uppercase">Register Here</a>
+              <a href="login.php" class="btn btn-lg btn-google btn-block text-uppercase">Go back to login</a> -->
+              
             </form>
           </div>
         </div>
