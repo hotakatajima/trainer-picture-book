@@ -131,7 +131,7 @@
             
           <form action="admin_action.php" method="post">
             <div class="form-group mt-5">
-                <div class="alert alert-danger w-50 mx-auto">Sorry, trainers you entered doesnt exist. Please search agein.</div>
+                <div class="alert alert-danger w-50 mx-auto">Sorry, trainers you entered don't exist. Please search agein.</div>
                 <input type="text" name="search" class="form-control w-25 d-inline p-3 mt-5" placeholder="Search trainer username or trainer address">
                 <button class="btn btn-lg btn-danger btn-inline text-uppercase ml-2" type="submit" name="admin_serch">GO</button>
                 <!-- <a href="search_outcome.php?trainer_lname=" role="button" class="btn btn-lg btn-danger btn-inline-block w-25 text-uppercase ml-2">GO</a> -->
