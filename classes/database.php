@@ -3,10 +3,10 @@
 session_start();
 
 class Database{
-    private $servername = 'localhost';
-    private $username = 'root';
-    private $password = 'root';
-    private $database_name = 'fist_portfolio';
+    private $servername = 'us-cdbr-iron-east-01.cleardb.net';
+    private $username = 'ba0573e0eef412';
+    private $password = '2d72cda0';
+    private $database_name = 'heroku_80a99531d86acfb';
     public $conn;
 
     public function __construct()
